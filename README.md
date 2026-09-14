@@ -12,7 +12,6 @@ HKIA_flight_monitor/
 ├── data
 │   ├── changed_flights.csv
 │   ├── current_flights.csv
-│   ├── HKIA_merged_cargo_2026-09-08.csv
 │   ├── HKIA_merged.csv
 │   ├── newly_changed_flights.csv
 │   └── online_ports.csv
@@ -35,7 +34,7 @@ HKIA_flight_monitor/
     ├── main.py
     └── visuals.py
 ```
-
+    
 ## 🚀 Getting Started
 
 ### 1. Installation
@@ -84,7 +83,7 @@ END_DATE=\$(date -v+2d +%Y-%m-%d)
 Once your dates are set, give the script execution permissions and run it from your terminal in root folder :
 ```bash
 chmod +x scripts/backfill.sh
-#or get fuull path
+#or get full path
 chmod +x fullpath/backfill.sh
 
 #run the script by pasting the path in your terminal

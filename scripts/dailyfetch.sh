@@ -3,14 +3,18 @@
 # Navigate to your project root
 cd /Users/fionaleong/HKIA_flight_monitor || exit 1
 
+#remove old upcoming file and create new ones 
+rm /Users/fionaleong/HKIA_flight_monitor/data/HKIA_upcoming.csv
+touch /Users/fionaleong/HKIA_flight_monitor/data/HKIA_upcoming.csv
+
 # Create logs folder if it doesn't exist
 mkdir -p back_logs
 
 # ================= CONFIGURE YOUR DATE RANGE =================
 
 #date range for backfill, for all available dates
-START_DATE=$(date -v-90d +%Y-%m-%d) #change this to your earliest desired date
-END_DATE=$(date -v-2d +%Y-%m-%d) 
+START_DATE=$(date -v-1d +%Y-%m-%d) #change this to your earliest desired date
+END_DATE=$(date -v+2d +%Y-%m-%d) 
 
 # =============================================================
 # Convert dates to epoch seconds (macOS compatible)
@@ -66,7 +70,6 @@ while [[ $current_epoch -le $end_epoch ]]; do
     current_epoch=$((current_epoch + 86400))
 done
 
-cp /Users/fionaleong/HKIA_flight_monitor/data/HKIA_merged.csv /Users/fionaleong/HKIA_flight_monitor/data/HKIA_merged_cargo_$(date +%Y-%m-%d).csv
 
 echo "========================================" | tee -a "back_logs/backfill.log"
 echo "$(date): Backfill completed!" | tee -a "back_logs/backfill.log"

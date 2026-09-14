@@ -1,1 +1,4 @@
-
+flight_id,flight_no,airline,date,time,port,status,status_code,flight_type,last_updated
+ET 3785_2026-09-16,ET 3785,ETH,2026-09-16,00:00,"MCT,MAD",Cancelled,,departure,2026-09-14T14:20:03+08:00
+ET 3791_2026-09-16,ET 3791,ETH,2026-09-16,00:00,LGG,Cancelled,,departure,2026-09-14T14:20:03+08:00
+ET 3767_2026-09-16,ET 3767,ETH,2026-09-16,07:10,LGG,Cancelled,,departure,2026-09-14T14:20:03+08:00

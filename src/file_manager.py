@@ -112,6 +112,7 @@ def append_changes(new_change_records):     #receive flights_id and status key-v
     ):
         print(df_new)
 
+#already append and won't override the header 
 def append_to_csv(new_data, csv_file="/Users/fionaleong/HKIA_flight_monitor/data/HKIA_merged.csv"):
     """
     Append new data to the CSV file.

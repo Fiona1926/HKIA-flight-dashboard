@@ -27,13 +27,15 @@ def run(target_date=date.today(), cargo= 'true', arrival='false'):
         write_current_snapshot(full_df, target_date)         #write full snapshot of current flight status
         write_changed_snapshot(full_df, target_date)         #write full snapshot of changed flights (delayed/cancelled)
         append_changes(changes)               #write only newly changed status flights, say new cancellation or delayed
-        append_to_csv(full_df)                #append new records (not just delayed/cancelled) to the merged csv, only add when doing backfill or when running the data once for one date
+        if (target_date <date.today()):
+            append_to_csv(full_df)                #append to csv for historical data
+        else:
+            append_to_csv(full_df, "/Users/fionaleong/HKIA_flight_monitor/data/HKIA_upcoming.csv" )     #append to temporary storage
         #no duplication check 
 
         logging.info(f"Saved {len(full_df)} flights; {len(changes)} new delayed/cancelled flights.")
     except Exception as e:
         logging.error(f"Run failed: {e}")
-
 '''
 if date is specified fetch API from that specific date
 else fetch API from today

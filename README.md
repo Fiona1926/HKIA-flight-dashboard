@@ -38,6 +38,11 @@ HKIA_flight_monitor/
 
 ---
 
+## 📷 Dashboard Preview
+![Screenshot](dashboard_preview.png)
+
+---
+
 ## 🧠 Concepts
 
 - **"Cargo" and "arrival"** are boolean-style flags (passed as the strings `'true'`/`'false'`) that mirror the HKIA API's own query parameters. `cargo=true` restricts results to cargo flights; `arrival=true` fetches arrivals instead of departures.

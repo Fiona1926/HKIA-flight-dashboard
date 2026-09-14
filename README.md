@@ -56,21 +56,21 @@ HKIA_flight_monitor/
 
 ```text
                      ┌─────────────────────┐
-                     │  HKIA public API     │
-                     │ hongkongairport.com  │
-                     └──────────┬───────────┘
+                     │  HKIA public API    │
+                     │ hongkongairport.com │
+                     └──────────┬──────────┘
                                 │ GET /flightinfo-rest/rest/flights
                                 │ ?date&span=1&cargo&arrival
                                 ▼
                      ┌─────────────────────┐
-                     │  api_client.py       │  flattens nested JSON →
-                     │  fetch_flights()     │  list[dict] (one row per flight)
-                     └──────────┬───────────┘
+                     │  api_client.py      │  flattens nested JSON →
+                     │  fetch_flights()    │  list[dict] (one row per flight)
+                     └──────────┬──────────┘
                                 ▼
                      ┌─────────────────────┐      reads previous run via
-                     │ data_processor.py    │◄─────  file_manager.load_previous_snapshot()
-                     │ process_flights()    │        (data/current_flights.csv)
-                     └──────────┬───────────┘
+                     │ data_processor.py   │◄─────  file_manager.load_previous_snapshot()
+                     │ process_flights()   │        (data/current_flights.csv)
+                     └──────────┬──────────┘
                                 │ (full_df, changes[])
                                 ▼
         ┌───────────────────────┴────────────────────────┐
@@ -86,8 +86,8 @@ HKIA_flight_monitor/
                                 │
                                 ▼
                      ┌─────────────────────┐
-                     │ visuals.py /         │  streamlit run — reads HKIA_merged.csv
-                     │ visuals2.py          │  (+ HKIA_upcoming.csv) and online_ports.csv
+                     │ visuals.py /        │  streamlit run — reads HKIA_merged.csv
+                     │                     │  (+ HKIA_upcoming.csv) and online_ports.csv
                      └─────────────────────┘
 ```
 
